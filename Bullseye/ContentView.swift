@@ -11,28 +11,41 @@ import SwiftUI
 struct ContentView: View {
 
     @State var alertIsVisible: Bool = false
+    @State var knockAlertIsVisible: Bool = false
 
     var body: some View {
-                VStack {
-                    Text("Hello, World!")
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.green)
-                    Button(action: {
-                        print("Button pressed")
-                        self.alertIsVisible = true
-                    }) {
-                        Text("Hit me!")
-                    }
-                    .alert(isPresented: $alertIsVisible) { () ->
-                        Alert in
-                        return Alert(title: Text("Hello there!"),
-                                     message: Text("This is my first pop-up!"),
-                                     dismissButton: .default(Text("Awesome!")))
-                    
+        VStack {
+            Text("Hello, World!")
+                .fontWeight(.semibold)
+                .foregroundColor(Color.green)
+            Button(action: {
+                print("Button pressed")
+                self.alertIsVisible = true
+            }) {
+                Text("Hit me!")
+            }
+            .alert(isPresented: $alertIsVisible) { () ->
+                Alert in
+                return Alert(title: Text("Hello there!"),
+                    message: Text("This is my first pop-up!"),
+                    dismissButton: .default(Text("Awesome!")))
+            }
+            Button(action: {
+                print("User wants a knock kock joke")
+                self.knockAlertIsVisible = true
+            }) {
+                Text("Knock knock!")
                 }
+            .alert(isPresented: $knockAlertIsVisible) { () ->
+                Alert in
+                return Alert(title: Text("Who's there?"),
+                    message: Text("Tank"),
+                    dismissButton: .default(Text("Tank who?")))
             }
         }
     }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
