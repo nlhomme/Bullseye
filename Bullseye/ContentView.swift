@@ -33,9 +33,15 @@ struct ContentView: View {
             Button(action: {
                 print("User wants a knock kock joke")
                 self.knockAlertIsVisible = true
-            }) {
-                Text("Knock knock!")
+            })
+                {
+                HStack {
+                    Image(systemName: "person.icloud.fill")
+                    Text("Knock knock!")
                 }
+            }
+            .buttonStyle(GradientButtonStyle())
+            .frame(alignment: .topLeading)
             .alert(isPresented: $knockAlertIsVisible) { () ->
                 Alert in
                 return Alert(title: Text("Who's there?"),
@@ -46,6 +52,22 @@ struct ContentView: View {
     }
 }
 
+// Déclaration d'un style de bouton
+struct GradientButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            // Couleur du premier plan (le texte)
+            .foregroundColor(Color.white)
+            // Rembourrage du bouton
+            .padding()
+            // Propriété de l'arrière plan
+            .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.orange]), startPoint: .leading, endPoint: .trailing))
+            // Arrondissement des coins du bouton
+            .cornerRadius(15.0)
+            // Effet de rembondissement quand on appuie sur le bouton
+            .scaleEffect(configuration.isPressed ? 1.3 : 1.0)
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
