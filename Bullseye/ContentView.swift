@@ -18,6 +18,10 @@ struct ContentView: View {
             Text("Hello, World!")
                 .fontWeight(.semibold)
                 .foregroundColor(Color.green)
+
+            Spacer()
+                .frame(height: 50)
+
             Button(action: {
                 print("Button pressed")
                 self.alertIsVisible = true
@@ -30,6 +34,10 @@ struct ContentView: View {
                     message: Text("This is my first pop-up!"),
                     dismissButton: .default(Text("Awesome!")))
             }
+
+            Spacer()
+                .frame(height: 50)
+
             Button(action: {
                 print("User wants a knock kock joke")
                 self.knockAlertIsVisible = true
