@@ -36,6 +36,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        // Avec .previewLayout(), on va fixer la résolution (en points)
+        // de la preview de Xcode
+        ContentView().previewLayout(.fixed(width: 896, height: 414))
     }
 }
