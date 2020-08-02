@@ -14,7 +14,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("Hello, World!")
+            Text("Welcome to my first app!")
                 .fontWeight(.semibold)
                 .foregroundColor(Color.green)
 
