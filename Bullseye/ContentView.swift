@@ -14,10 +14,14 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            // Target row
             Text("Welcome to my first app!")
                 .fontWeight(.semibold)
                 .foregroundColor(Color.green)
 
+            // Slider row
+
+            // Button row
             Button(action: {
                 print("Button pressed")
                 self.alertIsVisible = true
@@ -30,6 +34,9 @@ struct ContentView: View {
                     message: Text("This is my first pop-up!"),
                     dismissButton: .default(Text("Awesome!")))
             }
+            
+            // Score row
+            
         }
     }
 }
