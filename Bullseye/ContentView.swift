@@ -15,11 +15,16 @@ struct ContentView: View {
     var body: some View {
         VStack {
             // Target row
-            Text("Welcome to my first app!")
-                .fontWeight(.semibold)
-                .foregroundColor(Color.green)
-
+            HStack {
+                Text("Put the bullseye as close as you can to:")
+                Text("100")
+            }
             // Slider row
+            HStack {
+                Text("1")
+                Slider(value: .constant(10))
+                Text("100")
+            }
 
             // Button row
             Button(action: {
