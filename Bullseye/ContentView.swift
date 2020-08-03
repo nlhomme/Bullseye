@@ -14,18 +14,23 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            Spacer()
+            
             // Target row
             HStack {
                 Text("Put the bullseye as close as you can to:")
                 Text("100")
             }
+            Spacer()
+            
             // Slider row
             HStack {
                 Text("1")
                 Slider(value: .constant(10))
                 Text("100")
             }
-
+            Spacer()
+            
             // Button row
             Button(action: {
                 print("Button pressed")
@@ -39,23 +44,28 @@ struct ContentView: View {
                     message: Text("This is my first pop-up!"),
                     dismissButton: .default(Text("Awesome!")))
             }
+            Spacer()
             
             // Score row
             HStack {
                 Button(action: {}) {
                     Text("Start over")
                 }
+                Spacer()
+                
                 Text("Score:")
                 Text("999999")
+                Spacer()
                 
                 Text("Round:")
                 Text("999")
-
+                Spacer()
+                
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     Text("Info")
                 }
             }
-
+            .padding(.bottom, 20)
         }
     }
 }
