@@ -41,7 +41,7 @@ struct ContentView: View {
                 Text("Hit me!")
             }
             .alert(isPresented: $alertIsVisible) { () -> Alert in
-                var roundedValue: Int = Int(self.sliderValue.rounded())
+                let roundedValue: Int = Int(self.sliderValue.rounded())
                 return Alert(title: Text("Hello there!"),message: Text(
                   "The slider's value is \(roundedValue).\n" +
                   "You scored \(self.pointsForCurrentRound()) points this round."
@@ -73,17 +73,10 @@ struct ContentView: View {
     }
     
     func pointsForCurrentRound() -> Int {
-        var roundedValue: Int = Int(self.sliderValue.rounded())
-        var difference: Int = self.target - roundedValue
+        let roundedValue: Int = Int(self.sliderValue.rounded())
+        let difference: Int = abs(self.target - roundedValue)
 
-        if difference < 0 {
-            difference = difference * -1
-            // ou difference *= -1
-            // ou difference = -difference
-        }
-        
-        var awardedPoints: Int = 100 - difference
-        
+        let awardedPoints: Int = 100 - difference
         return awardedPoints
     }
 }
