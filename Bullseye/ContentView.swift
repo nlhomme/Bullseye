@@ -76,6 +76,21 @@ struct ContentView: View {
         return 999
     }
     
+/*
+calcul de la différence entre target et sliderValue:
+
+Réponse NLH:
+     score = absolu(target - sliderValue))
+
+Réponse du correcteur:
+     Si target > sliderValue
+        Alors score = target - sliderValue
+     Sinon Si target < sliderValue
+        Alors score = sliderValue - target
+     Sinon
+        Score = 0
+*/
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
