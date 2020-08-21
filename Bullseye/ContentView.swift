@@ -57,7 +57,9 @@ struct ContentView: View {
             
             // Score row
             HStack {
-                Button(action: {}) {
+                Button(action: {
+                    self.resetGame()
+                }) {
                     Text("Start over")
                 }
                 Spacer()
@@ -118,7 +120,13 @@ struct ContentView: View {
         }
         
         return title
-        
+    }
+    
+    func resetGame() {
+        roundNumber = 1
+        score = 0
+        sliderValue = 50.0
+        target = Int.random(in: 1...100)
     }
     
 }
