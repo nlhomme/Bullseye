@@ -20,8 +20,24 @@ struct ContentView: View {
         func body(content: Content) -> some View {
             return content
                 .foregroundColor(Color.white)
-                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                .modifier(Shadow())
                 .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+    
+    struct ValueStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.yellow)
+                .modifier(Shadow())
+                .font(Font.custom("Arial Rounded MT Bold", size: 24))
+        }
+    }
+    
+    struct Shadow: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
         }
     }
     
@@ -32,7 +48,7 @@ struct ContentView: View {
             // Target row
             HStack {
                 Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
-                Text("\(target)").modifier(LabelStyle())
+                Text("\(target)").modifier(ValueStyle())
             }
             Spacer()
             
@@ -74,11 +90,11 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Score:").modifier(LabelStyle())
-                Text("\(score)").modifier(LabelStyle())
+                Text("\(score)").modifier(ValueStyle())
                 Spacer()
                 
                 Text("Round:").modifier(LabelStyle())
-                Text("\(roundNumber)").modifier(LabelStyle())
+                Text("\(roundNumber)").modifier(ValueStyle())
                 Spacer()
                 
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
