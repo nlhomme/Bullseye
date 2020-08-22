@@ -78,6 +78,7 @@ struct ContentView: View {
             }
             .padding(.bottom, 20)
         }
+        .background(Image("Background"), alignment: .center)
     }
 
     func sliderValueRounded()  -> Int {
