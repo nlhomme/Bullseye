@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var target = Int.random(in: 1...100)
     @State var score = 0
     @State var roundNumber = 1
+    let midnightBlue = Color(red: 0.0 / 255, green: 51.0 / 255.0, blue: 102.0 / 255.0)
     
     struct LabelStyle: ViewModifier {
         func body(content: Content) -> some View {
@@ -31,6 +32,22 @@ struct ContentView: View {
                 .foregroundColor(Color.yellow)
                 .modifier(Shadow())
                 .font(Font.custom("Arial Rounded MT Bold", size: 24))
+        }
+    }
+    
+    struct ButtonLargeTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+    
+    struct ButtonSmallTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 12))
         }
     }
     
@@ -55,7 +72,7 @@ struct ContentView: View {
             // Slider row
             HStack {
                 Text("1").modifier(LabelStyle())
-                Slider(value: $sliderValue, in: 1...100)
+                Slider(value: $sliderValue, in: 1...100).accentColor(Color.green)
                 Text("100").modifier(LabelStyle())
             }
             Spacer()
@@ -65,7 +82,7 @@ struct ContentView: View {
                 print("Button pressed")
                 self.alertIsVisible = true
             }) {
-                Text("Hit me!")
+                Text("Hit me!").modifier(ButtonLargeTextStyle())
             }
             .alert(isPresented: $alertIsVisible) { () -> Alert in
                 //let roundedValue = Int(sliderValue.rounded())
@@ -78,6 +95,7 @@ struct ContentView: View {
                         self.roundNumber = self.roundNumber + 1
                     })
             }
+            .background(Image("Button")).modifier(Shadow())
             Spacer()
             
             // Score row
@@ -85,8 +103,12 @@ struct ContentView: View {
                 Button(action: {
                     self.resetGame()
                 }) {
-                    Text("Start over")
+                    HStack{
+                        Image("StartOverIcon")
+                        Text("Start over").modifier(ButtonSmallTextStyle())
+                    }
                 }
+                .background(Image("Button")).modifier(Shadow())
                 Spacer()
                 
                 Text("Score:").modifier(LabelStyle())
@@ -98,12 +120,17 @@ struct ContentView: View {
                 Spacer()
                 
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Text("Info")
+                    HStack{
+                        Image("InfoIcon")
+                        Text("Info").modifier(ButtonSmallTextStyle())
+                    }
                 }
+                .background(Image("Button")).modifier(Shadow())
             }
             .padding(.bottom, 20)
         }
         .background(Image("Background"), alignment: .center)
+        .accentColor(midnightBlue)
     }
 
     func sliderValueRounded()  -> Int {
