@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1160"
+   LastUpgradeVersion = "1200"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37B72D8324B37E2000664E96"
-               BuildableName = "Bullseye.app"
+               BuildableName = "Bull&apos;s Eye.app"
                BlueprintName = "Bullseye"
                ReferencedContainer = "container:Bullseye.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37B72D8324B37E2000664E96"
-            BuildableName = "Bullseye.app"
+            BuildableName = "Bull&apos;s Eye.app"
             BlueprintName = "Bullseye"
             ReferencedContainer = "container:Bullseye.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37B72D8324B37E2000664E96"
-            BuildableName = "Bullseye.app"
+            BuildableName = "Bull&apos;s Eye.app"
             BlueprintName = "Bullseye"
             ReferencedContainer = "container:Bullseye.xcodeproj">
          </BuildableReference>
